@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-like',
   standalone: true,
   imports: [],
-  templateUrl: './like.component.html',
-  styleUrl: './like.component.scss'
+  template: `<p>Like Template</p>`,
+  styles: ``
 })
 export class LikeComponent {
 
