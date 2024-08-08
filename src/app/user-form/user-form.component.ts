@@ -17,4 +17,13 @@ export class UserFormComponent {
       this.disableButton = true;
     }, 5000);
   }
+
+  clickSaveData(): void {
+    console.log('Guardando datos...');
+  }
+
+  captureEventInput(event: Event): void {
+    const inputEvent = event as InputEvent;
+    console.log('Evento input...', inputEvent.data);    
+  }
 }
