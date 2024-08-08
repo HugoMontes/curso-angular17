@@ -9,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class UserFormComponent {
   inputMessate = 'Ingresa tus nombres';
+  disableButton = false;
+
+  constructor() {
+    setTimeout(() => {
+      console.log('Boton deshabilitado...');
+      this.disableButton = true;
+    }, 5000);
+  }
 }
