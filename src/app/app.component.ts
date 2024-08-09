@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { LikeComponent } from './like/like.component';
-import { UserFormComponent } from './user-form/user-form.component';
+import { ContainerModule } from './container/container.module';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [LikeComponent, UserFormComponent],
+  imports: [ContainerModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
