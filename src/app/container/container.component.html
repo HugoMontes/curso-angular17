@@ -8,6 +8,10 @@
   <div class="grid-main">
     <main class="main">
       <h1>Contenido</h1>
+      <input type="text" placeholder="Ingresa tu nombre" [(ngModel)]="inputName"/>
+      <span>Nombre ingresado: {{ inputName }}</span>
+      <br />
+      <button (click)="clickButton()">Cambiar valor</button>
     </main>
   </div>
 </div>
