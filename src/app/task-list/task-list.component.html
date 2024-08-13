@@ -4,7 +4,11 @@
 	<h1 class="container__title">Lista de Tareas</h1>
 	<div class="task" [ngClass]="{'task--completed': task.status === 'COMPLETED'}">
 		<p [ngStyle]="{ color: colorText }">{{ task.task }}</p>
-		<img class="task__icon" src="assets/icons/status-completed.png" alt="completado" />
+		<img *ngIf="task.status === 'COMPLETED' ; else taskImage" 
+			 class="task__icon" src="assets/icons/status-completed.png" alt="completado" />
+		<ng-template #taskImage>
+			<img class="task__icon" src="assets/icons/status-pending.png"/>
+		</ng-template>
 
 		<section>
 			<select class="task__status" [(ngModel)]="task.status" (change)="changeStatus()">
