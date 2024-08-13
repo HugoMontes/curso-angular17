@@ -1,0 +1,23 @@
+<!-- EJEMPLO PARA DIRECTIVAS DE ATRIBUTOS -->
+
+<div class="container">
+	<h1 class="container__title">Lista de Tareas</h1>
+	<div class="task" [ngClass]="{'task--completed': task.status === 'COMPLETED'}">
+		<p [ngStyle]="{ color: colorText }">{{ task.task }}</p>
+		<img class="task__icon" src="assets/icons/status-completed.png" alt="completado" />
+
+		<section>
+			<select class="task__status" [(ngModel)]="task.status" (change)="changeStatus()">
+				<option value="COMPLETED" [selected]="task.status === 'COMPLETED'">Completado</option>
+				<option value="PROGRESS" [selected]="task.status === 'PROGRESS'">En progreso</option>
+				<option value="PENDING" [selected]="task.status === 'PENDING'">Pendiente</option>
+			</select>
+
+			<select>
+				<option value="HIGH" [selected]="task.priority === 'HIGH'">Alta</option>
+				<option value="MEDIUM" [selected]="task.priority === 'MEDIUM'">Media</option>
+				<option value="LOW" [selected]="task.priority === 'LOW'">Baja</option>
+			</select>
+		</section>
+	</div>
+</div>
