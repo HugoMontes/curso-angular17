@@ -2,7 +2,9 @@
 
 <div class="container">
 	<h1 class="container__title">Lista de Tareas</h1>
-	<div class="task" [ngClass]="{'task--completed': task.status === 'COMPLETED'}">
+	<div *ngFor="let task of list_task ; let i = index" 
+		class="task" [ngClass]="{'task--completed': task.status === 'COMPLETED'}">
+		<span>Tarea: {{ i + 1 }}</span>
 		<p [ngStyle]="{ color: colorText }">{{ task.task }}</p>
 		<img *ngIf="task.status === 'COMPLETED' ; else taskImage" 
 			 class="task__icon" src="assets/icons/status-completed.png" alt="completado" />
@@ -12,15 +14,18 @@
 
 		<section>
 			<select class="task__status" [(ngModel)]="task.status" (change)="changeStatus()">
-				<option value="COMPLETED" [selected]="task.status === 'COMPLETED'">Completado</option>
-				<option value="PROGRESS" [selected]="task.status === 'PROGRESS'">En progreso</option>
-				<option value="PENDING" [selected]="task.status === 'PENDING'">Pendiente</option>
+				<option *ngFor="let status of LIST_OBJECT_STATES" [value]="status.key">
+					{{ status.text }}
+				</option>
 			</select>
 
-			<select>
-				<option value="HIGH" [selected]="task.priority === 'HIGH'">Alta</option>
+			<select [(ngModel)]="task.priority">
+				<option *ngFor="let priority of PRYORITY_LIST" [value]="priority.key">
+					{{ priority.text }}
+				</option>
+				<!-- <option value="HIGH" [selected]="task.priority === 'HIGH'">Alta</option>
 				<option value="MEDIUM" [selected]="task.priority === 'MEDIUM'">Media</option>
-				<option value="LOW" [selected]="task.priority === 'LOW'">Baja</option>
+				<option value="LOW" [selected]="task.priority === 'LOW'">Baja</option> -->
 			</select>
 		</section>
 	</div>
