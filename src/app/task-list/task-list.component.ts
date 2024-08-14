@@ -49,4 +49,31 @@ export class TaskListComponent {
   changeStatus(): void {
     // console.log(this.task);
   }
+
+	updateTask(): void {
+		this.list_task[1] = {
+			priority: 'LOW',
+			task: this.inputValue,
+			status: 'PENDING'
+		};
+	}
+
+  refresh(): void {
+		this.list_task = [
+			{
+				priority: 'HIGH',
+				task: 'Aprender TypeScript',
+				status: 'PENDING'
+			},
+			{
+				priority: 'LOW',
+				task: 'Aprender Angular',
+				status: 'PENDING'
+			}
+		];
+	}
+
+  trackByItems(index: number, item: ITask) {
+    return index;
+  }
 }

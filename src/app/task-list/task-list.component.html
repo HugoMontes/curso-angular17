@@ -2,7 +2,13 @@
 
 <div class="container">
 	<h1 class="container__title">Lista de Tareas</h1>
-	<div *ngFor="let task of list_task ; let i = index" 
+	<section>
+		<input [(ngModel)]="inputValue" type="text" placeholder="Ingrese una tarea" />
+		<button (click)="updateTask()">Actualizar tarea</button>
+		<button (click)="refresh()">Actualizar Lista</button>
+	</section>
+
+	<div *ngFor="let task of list_task ; let i = index ; trackBy: trackByItems" 
 		class="task" [ngClass]="{'task--completed': task.status === 'COMPLETED'}">
 		<span>Tarea: {{ i + 1 }}</span>
 		<p [ngStyle]="{ color: colorText }">{{ task.task }}</p>
