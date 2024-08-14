@@ -1,0 +1,44 @@
+<!-- EJEMPLO PARA DIRECTIVAS DE ATRIBUTOS -->
+
+<div class="container">
+	<h1 class="container__title">Lista de Tareas</h1>
+	<section>
+		<input [(ngModel)]="inputValue" type="text" placeholder="Ingrese una tarea" />
+		<button (click)="updateTask()">Actualizar tarea</button>
+		<button (click)="refresh()">Actualizar Lista</button>
+	</section>
+
+	<div *ngFor="let task of list_task ; let i = index ; trackBy: trackByItems" 
+		class="task" [ngClass]="{'task--completed': task.status === 'COMPLETED'}">
+		<span>Tarea: {{ i + 1 }}</span>
+		<p [ngStyle]="{ color: colorText }">{{ task.task }}</p>
+		<img *ngIf="task.status === 'COMPLETED' ; else taskImage" 
+			 class="task__icon" src="assets/icons/status-completed.png" alt="completado" />
+		<ng-template #taskImage>
+			<img class="task__icon" src="assets/icons/status-pending.png"/>
+		</ng-template>
+
+		<section>
+			<select class="task__status" [(ngModel)]="task.status" (change)="changeStatus()">
+				<option *ngFor="let status of LIST_OBJECT_STATES" [value]="status.key">
+					{{ status.text }}
+				</option>
+			</select>
+
+			<select [(ngModel)]="task.priority">
+				<option *ngFor="let priority of PRYORITY_LIST" [value]="priority.key">
+					{{ priority.text }}
+				</option>
+				<!-- <option value="HIGH" [selected]="task.priority === 'HIGH'">Alta</option>
+				<option value="MEDIUM" [selected]="task.priority === 'MEDIUM'">Media</option>
+				<option value="LOW" [selected]="task.priority === 'LOW'">Baja</option> -->
+			</select>
+		</section>
+
+		<ng-container [ngSwitch]="task.priority">
+			<span class="task__priority-info" *ngSwitchCase="'HIGH'">Esta tarea es prioritaria</span>
+			<span class="task__priority-info" *ngSwitchCase="'MEDIUM'">Te recomiendo hacer esta tarea</span>
+			<span class="task__priority-info" *ngSwitchDefault>Prioridad baja</span>
+		</ng-container>
+	</div>
+</div>

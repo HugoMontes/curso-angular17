@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { TaskListModule } from './task-list/task-list.module';
+import { TaskListOnlyStandaloneComponent } from './task-list-only-standalone/task-list-only-standalone.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [TaskListModule],
+  imports: [TaskListOnlyStandaloneComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
