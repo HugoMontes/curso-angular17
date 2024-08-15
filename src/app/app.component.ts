@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { DemoDirective } from './directives/demo.directive';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [DemoDirective],
+  imports: [ContactFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
