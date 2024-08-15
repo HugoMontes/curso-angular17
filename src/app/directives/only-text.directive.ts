@@ -5,7 +5,7 @@ import { Directive, ElementRef, HostListener, inject } from '@angular/core';
   standalone: true,
 })
 export class OnlyTextDirective {
-  
+
   // element: ElementRef<HTMLInputElement> = inject(ElementRef);
 
   // @HostListener('input') onInput() {
@@ -14,6 +14,12 @@ export class OnlyTextDirective {
 
   @HostListener('input', ['$event']) onInput(event: Event) {
     const inputElement = event.target as HTMLInputElement;
-    console.log('----------->', inputElement.value);
+    // console.log('----------->', inputElement.value);
+    const value = inputElement.value;
+    const regex = /^[a-zA-Z\s]*$/;
+    if(!regex.test(value)){
+      const cleanValue = value.replace(/[^a-zA-Z\s]/g, '');
+      inputElement.value = cleanValue;
+    }
   }
 }
