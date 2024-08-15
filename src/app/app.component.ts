@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { TaskListNewSyntaxComponent } from './task-list-new-syntax/task-list-new-syntax.component';
+import { DemoDirective } from './directives/demo.directive';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [TaskListNewSyntaxComponent],
+  imports: [DemoDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
