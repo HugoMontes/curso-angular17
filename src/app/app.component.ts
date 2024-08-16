@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { ShowInfoComponent } from './show-info/show-info.component';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ShowInfoComponent],
+  imports: [MatButton],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
