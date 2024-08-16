@@ -1,4 +1,5 @@
 import { Directive, ElementRef, HostListener, inject } from '@angular/core';
+import { NgControl } from '@angular/forms';
 
 @Directive({
   selector: '[appOnlyText]',
@@ -12,6 +13,8 @@ export class OnlyTextDirective {
   //   console.log('----------->', this.element.nativeElement.value);
   // }
 
+  ngControl = inject(NgControl, {optional: true});
+
   @HostListener('input', ['$event']) onInput(event: Event) {
     const inputElement = event.target as HTMLInputElement;
     // console.log('----------->', inputElement.value);
@@ -20,6 +23,7 @@ export class OnlyTextDirective {
     if(!regex.test(value)){
       const cleanValue = value.replace(/[^a-zA-Z\s]/g, '');
       inputElement.value = cleanValue;
+      this.ngControl?.control?.setValue(cleanValue);
     }
   }
 }
