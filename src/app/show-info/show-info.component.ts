@@ -1,10 +1,11 @@
 import { CurrencyPipe, DatePipe, DecimalPipe, LowerCasePipe, NgFor, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
+import { CustomCurrencyPipe } from '../pipes/custom-currency.pipe';
 
 @Component({
   selector: 'app-show-info',
   standalone: true,
-  imports: [CurrencyPipe, DatePipe, LowerCasePipe, UpperCasePipe, DecimalPipe, NgFor],
+  imports: [CurrencyPipe, DatePipe, LowerCasePipe, UpperCasePipe, DecimalPipe, NgFor, CustomCurrencyPipe],
   templateUrl: './show-info.component.html',
   styleUrl: './show-info.component.scss'
 })
