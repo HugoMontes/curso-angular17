@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { ContactFormComponent } from './contact-form/contact-form.component';
+import { ShowInfoComponent } from './show-info/show-info.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ContactFormComponent],
+  imports: [ShowInfoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
