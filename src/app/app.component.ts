@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { MatButton } from '@angular/material/button';
+import { PokemonsComponent } from './pokemons/pokemons.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [MatButton],
+  imports: [PokemonsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
