@@ -11,5 +11,5 @@
 		</mat-list-item>
 		}
 	</mat-nav-list>
-	<app-pokemon [pokemon]="pokemonSelected"></app-pokemon>
+	<app-pokemon [pokemon]="pokemonSelected" (deletePokemon)="deletePokemon($event)"></app-pokemon>
 </div>

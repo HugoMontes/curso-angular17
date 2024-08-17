@@ -10,7 +10,7 @@
         </mat-card-content>
 
         <mat-card-actions align="end">
-            <button mat-button color="warn">ELIMINAR</button>
+            <button mat-button color="warn" (click)="deletePokemon.emit(pokemon)">ELIMINAR</button>
         </mat-card-actions>
 	} @else {
 	    <h5>Seleccione un pokemon de la lista</h5>
